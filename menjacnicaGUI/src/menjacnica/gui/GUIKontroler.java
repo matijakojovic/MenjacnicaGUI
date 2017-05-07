@@ -16,6 +16,7 @@ public class GUIKontroler extends JFrame {
 
 	private JPanel contentPane;
 	private static MenjacnicaGUI menjacnicaGui;
+	private static DodajKursGUI dodajKursGui;
 	
 	public  static String fajl(){
 		JFileChooser jfc = new javax.swing.JFileChooser();
@@ -37,9 +38,7 @@ public class GUIKontroler extends JFrame {
 		}
 	}
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -62,7 +61,6 @@ public class GUIKontroler extends JFrame {
 			System.exit(0);
 		}
 	}
-	
 	public static void about(){
 		JOptionPane.showMessageDialog(menjacnicaGui, 
 				"Autor : Matija Kojovic" + "\n" + 
@@ -70,8 +68,17 @@ public class GUIKontroler extends JFrame {
 		"Projekat za dodatnu nastavu \"Menjacnica\"." + "\n" + 
 		"Java programiranje.");
 	}
-	
-	
+	public static void otvoriDodajKurs(){
+		GUIKontroler.dodajKursGui = new DodajKursGUI();
+		dodajKursGui.setVisible(true);
+	}
+	public static void zatvoriDodajKurs(){
+		dodajKursGui.dispose();
+		dodajKursGui = null;
+	}
+	public static void textMenjacnicaGUI(String s){
+		upisi(menjacnicaGui.getTextArea().getText() + "\n" + s, menjacnicaGui.getTextArea());
+	}
 	
 	
 

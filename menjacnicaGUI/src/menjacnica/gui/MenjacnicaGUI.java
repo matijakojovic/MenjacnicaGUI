@@ -174,6 +174,13 @@ public class MenjacnicaGUI extends JFrame {
 		if (btnDodajKurs == null) {
 			btnDodajKurs = new JButton("Dodaj kurs");
 			btnDodajKurs.setPreferredSize(new Dimension(111, 25));
+			btnDodajKurs.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					GUIKontroler.otvoriDodajKurs();				
+				}
+			});
 		}
 		return btnDodajKurs;
 	}
@@ -198,7 +205,10 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return scrollPane;
 	}
-	private JTextArea getTextArea() {
+	public void setTextArea(JTextArea textArea){
+		this.textArea = textArea;
+	}
+	public JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
 			textArea.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "STATUS", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -216,6 +226,7 @@ public class MenjacnicaGUI extends JFrame {
 		if (table == null) {
 			table = new JTable();
 			table.setFillsViewportHeight(true);
+			table.getTableHeader().setReorderingAllowed(false);
 			addPopup(table, getPopupMenu());
 		}
 		return table;
@@ -249,6 +260,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					GUIKontroler.otvoriDodajKurs();
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
