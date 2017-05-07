@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.File;
 
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ public class GUIKontroler extends JFrame {
 	private JPanel contentPane;
 	private static MenjacnicaGUI menjacnicaGui;
 	private static DodajKursGUI dodajKursGui;
+	private static ObrisiKursGUI obrisiKursGui;
 	
 	public  static String fajl(){
 		JFileChooser jfc = new javax.swing.JFileChooser();
@@ -79,7 +81,21 @@ public class GUIKontroler extends JFrame {
 	public static void textMenjacnicaGUI(String s){
 		upisi(menjacnicaGui.getTextArea().getText() + "\n" + s, menjacnicaGui.getTextArea());
 	}
-	
+	public static void otvoriObrisiKurs(){
+		GUIKontroler.obrisiKursGui = new ObrisiKursGUI();
+		obrisiKursGui.setVisible(true);
+	}
+	public static void zatvoriObrisiKurs(){
+		obrisiKursGui.dispose();
+		obrisiKursGui = null;
+	}
+	public static void omoguciDugme(JButton btnObrisi){
+		if(btnObrisi.isEnabled() == true){
+			btnObrisi.setEnabled(false);
+		}else{
+			btnObrisi.setEnabled(true);
+		}
+	}
 	
 
 	/**

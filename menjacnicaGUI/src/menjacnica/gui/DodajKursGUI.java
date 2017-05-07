@@ -182,11 +182,11 @@ public class DodajKursGUI extends JFrame {
 			btnDodaj.setBounds(32, 238, 116, 25);
 			btnDodaj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					GUIKontroler.textMenjacnicaGUI("Sifra : " + getTextFieldSifra().getText() + " ; Naziv : " + getTextNaziv().getText() + 
-												" ; Prodajni kurs : " + getTextProdajni().getText() + 
-												" ; Kupovni kurs : " + getTextFieldKupovni().getText() + 
-												" ; Srednji kurs : " + getTextFieldSrednji().getText() + 
-												" ; Skraceni Naziv : " + getTextFieldSkraceniNaziv().getText());			
+					GUIKontroler.textMenjacnicaGUI("Dodat kurs : \n Sifra: " + getTextFieldSifra().getText() + ", Naziv: " + getTextNaziv().getText() + 
+												", Prodajni kurs: " + getTextProdajni().getText() + 
+												", Kupovni kurs: " + getTextFieldKupovni().getText() + 
+												", Srednji kurs: " + getTextFieldSrednji().getText() + 
+												", Skraceni Naziv: " + getTextFieldSkraceniNaziv().getText());			
 				}
 			});
 		}
