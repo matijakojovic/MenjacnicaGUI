@@ -1,6 +1,5 @@
 package menjacnica.gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.io.File;
 
@@ -8,17 +7,17 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 public class GUIKontroler extends JFrame {
+	public GUIKontroler() {
+	}
 
-	private JPanel contentPane;
 	private static MenjacnicaGUI menjacnicaGui;
 	private static DodajKursGUI dodajKursGui;
 	private static ObrisiKursGUI obrisiKursGui;
+	private static IzvrsiZamenuGUI izvrsiZamenuGui;
 	
 	public  static String fajl(){
 		JFileChooser jfc = new javax.swing.JFileChooser();
@@ -96,18 +95,12 @@ public class GUIKontroler extends JFrame {
 			btnObrisi.setEnabled(true);
 		}
 	}
-	
-
-	/**
-	 * Create the frame.
-	 */
-	public GUIKontroler() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+	public static void otvoriZamenu(){
+		GUIKontroler.izvrsiZamenuGui = new IzvrsiZamenuGUI();
+		izvrsiZamenuGui.setVisible(true);
 	}
-
+	public static void zatvoriZamenu(){
+		izvrsiZamenuGui.dispose();
+		izvrsiZamenuGui = null;
+	}
 }

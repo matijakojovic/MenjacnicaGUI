@@ -1,8 +1,5 @@
 package menjacnica.gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -34,25 +31,7 @@ public class DodajKursGUI extends JFrame {
 	private JButton btnDodaj;
 	private JButton btnOdustani;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DodajKursGUI frame = new DodajKursGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public DodajKursGUI() {
 		
 		addWindowListener(new WindowAdapter() {
@@ -65,7 +44,7 @@ public class DodajKursGUI extends JFrame {
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(DodajKursGUI.class.getResource("/icons/1494190982_Money.png")));
 		setTitle("Dodaj Kurs");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 372, 334);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -1,8 +1,6 @@
 package menjacnica.gui;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -27,9 +25,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-
 import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
 import java.awt.Color;
 
@@ -109,7 +106,9 @@ public class MenjacnicaGUI extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					GUIKontroler.upisi("Ucitan fajl: " + GUIKontroler.fajl(), textArea);
+					if(!GUIKontroler.fajl().equals("")){
+						GUIKontroler.upisi("Ucitan fajl: " + GUIKontroler.fajl(), textArea);
+					}
 				}
 			});
 			mntmOpen.setIcon(new ImageIcon(MenjacnicaGUI.class.getResource("/icons/1494191070_Folder.png")));
@@ -123,10 +122,11 @@ public class MenjacnicaGUI extends JFrame {
 			mntmSave.setIcon(new ImageIcon(MenjacnicaGUI.class.getResource("/icons/1494191030_Save.png")));
 			mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
 			mntmSave.addActionListener(new ActionListener() {
-				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					GUIKontroler.upisi("Sacuvan fajl: " + GUIKontroler.fajl(), textArea);					
+					if(!GUIKontroler.fajl().equals("")){
+						GUIKontroler.upisi("Sacuvan fajl: " + GUIKontroler.fajl(), textArea);					
+					}
 				}
 			});
 		}
@@ -200,6 +200,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnIzvrsiZamenu() {
 		if (btnIzvrsiZamenu == null) {
 			btnIzvrsiZamenu = new JButton("Izvrsi zamenu");
+			btnIzvrsiZamenu.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					GUIKontroler.otvoriZamenu();
+				}
+			});
 		}
 		return btnIzvrsiZamenu;
 	}
@@ -234,6 +240,16 @@ public class MenjacnicaGUI extends JFrame {
 			table.setFillsViewportHeight(true);
 			table.getTableHeader().setReorderingAllowed(false);
 			addPopup(table, getPopupMenu());
+		
+			table = new JTable();
+			table.setModel(new DefaultTableModel(new Object[][] {},
+					new String[] {"Sifra","Skraceni naziv","Prodajne","Srednji","Kupovni","Naziv"}){
+				boolean[] columnEditables = new boolean[] { false, false, false, false, false, false };
+
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}			
+			});
 		}
 		return table;
 	}
@@ -243,6 +259,7 @@ public class MenjacnicaGUI extends JFrame {
 			popupMenu.add(getMntmDodajKurs());
 			popupMenu.add(getMntmObrisiKurs());
 			popupMenu.add(getMntmIzvrsiZamenu());
+			
 		}
 		return popupMenu;
 	}
@@ -290,6 +307,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					GUIKontroler.otvoriZamenu();
+				}
+			});
 		}
 		return mntmIzvrsiZamenu;
 	}
