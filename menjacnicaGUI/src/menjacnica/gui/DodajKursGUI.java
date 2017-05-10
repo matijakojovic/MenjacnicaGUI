@@ -37,7 +37,7 @@ public class DodajKursGUI extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e){
-				
+				GUIKontroler.zatvoriDodajKurs();
 			}
 		});
 		

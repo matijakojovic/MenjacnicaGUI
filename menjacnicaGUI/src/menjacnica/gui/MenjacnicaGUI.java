@@ -191,7 +191,7 @@ public class MenjacnicaGUI extends JFrame {
 			btnObrisiKurs.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					GUIKontroler.otvoriDodajKurs();
+					GUIKontroler.otvoriObrisiKurs();
 				}
 			});
 		}
@@ -237,19 +237,26 @@ public class MenjacnicaGUI extends JFrame {
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable();
+			table.setModel(new DefaultTableModel(
+				new Object[][] {
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+					{null, null, null, null, null, null},
+				},
+				new String[] {
+					"Sifra", "Skraceni nazi", "Prodajni", "Srednji", "Kupovni", "Naziv"
+				}
+			));
 			table.setFillsViewportHeight(true);
 			table.getTableHeader().setReorderingAllowed(false);
 			addPopup(table, getPopupMenu());
-		
-			table = new JTable();
-			table.setModel(new DefaultTableModel(new Object[][] {},
-					new String[] {"Sifra","Skraceni naziv","Prodajne","Srednji","Kupovni","Naziv"}){
-				boolean[] columnEditables = new boolean[] { false, false, false, false, false, false };
-
-				public boolean isCellEditable(int row, int column) {
-					return columnEditables[column];
-				}			
-			});
 		}
 		return table;
 	}
@@ -298,7 +305,7 @@ public class MenjacnicaGUI extends JFrame {
 			mntmObrisiKurs.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					GUIKontroler.otvoriDodajKurs();
+					GUIKontroler.otvoriObrisiKurs();
 				}
 			});
 		}

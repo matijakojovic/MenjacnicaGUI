@@ -111,9 +111,11 @@ public class ObrisiKursGUI extends JFrame {
 		return lblNewLabel_5;
 	}
 	private JButton getBtnObrisi() {
+		
 		if (btnObrisi == null) {
 			btnObrisi = new JButton("Obrisi");
 			btnObrisi.setBounds(30, 248, 116, 25);
+			btnObrisi.setEnabled(false);
 			btnObrisi.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
