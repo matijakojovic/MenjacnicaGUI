@@ -30,6 +30,17 @@ public class GUIKontroler extends JFrame {
 		}
 		return "";
 	}
+	public  static String sacuvaj(){
+		JFileChooser jfc = new javax.swing.JFileChooser();
+		int izbor = jfc.showSaveDialog(menjacnicaGui.getContentPane());
+		
+		if(izbor == JFileChooser.APPROVE_OPTION){
+			File f = jfc.getSelectedFile();
+			
+			return f.getAbsolutePath();
+		}
+		return "";
+	}
 	public static void upisi(String s, Object o){
 		if(o instanceof JTextArea){
 			((JTextArea)o).setText(((JTextArea)o).getText() + "\n" + s);

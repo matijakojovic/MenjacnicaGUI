@@ -65,6 +65,7 @@ public class MenjacnicaGUI extends JFrame {
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 560, 385);
+		setLocationRelativeTo(null);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -106,8 +107,9 @@ public class MenjacnicaGUI extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					if(!GUIKontroler.fajl().equals("")){
-						GUIKontroler.upisi("Ucitan fajl: " + GUIKontroler.fajl(), textArea);
+					String t = GUIKontroler.fajl();
+					if(!t.equals("")){
+						GUIKontroler.upisi("Ucitan fajl: " + t, textArea);
 					}
 				}
 			});
@@ -124,8 +126,9 @@ public class MenjacnicaGUI extends JFrame {
 			mntmSave.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					if(!GUIKontroler.fajl().equals("")){
-						GUIKontroler.upisi("Sacuvan fajl: " + GUIKontroler.fajl(), textArea);					
+					String t = GUIKontroler.sacuvaj();
+					if(!t.equals("")){
+						GUIKontroler.upisi("Sacuvan fajl: " + t, textArea);					
 					}
 				}
 			});
